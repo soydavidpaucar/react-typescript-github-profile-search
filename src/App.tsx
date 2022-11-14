@@ -1,5 +1,5 @@
-function App() {
+function GithubSearchProfileApp() {
   return <h1>Hello World</h1>;
 }
 
-export default App;
+export default GithubSearchProfileApp;
