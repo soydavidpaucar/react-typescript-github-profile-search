@@ -4,11 +4,13 @@ function useFetch() {
   const [githubData, setGithubData] = useState<[]>([]);
 
   const fetchGithubData = async (githubUsername: string): Promise<void> => {
-    const response: Response = await fetch(
-      `https://api.github.com/users/${githubUsername}`
-    );
-    const data: [] = await response.json();
-    setGithubData(data);
+    if (githubUsername !== githubData?.login) {
+      const response: Response = await fetch(
+        `https://api.github.com/users/${githubUsername}`
+      );
+      const data: [] = await response.json();
+      setGithubData(data);
+    }
   };
 
   return { githubData, fetchGithubData };
