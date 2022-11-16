@@ -33,6 +33,7 @@ function SearchBar({ onSearchGithubUsername }: SearchBarProps) {
           defaultValue=""
           type="text"
           placeholder="Enter github username..."
+          _placeholder={{ color: 'inherit' }}
           width="auto"
         />
         <FormErrorMessage>
