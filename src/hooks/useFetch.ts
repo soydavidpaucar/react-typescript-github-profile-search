@@ -8,7 +8,6 @@ function useFetch() {
       `https://api.github.com/users/${githubUsername}`
     );
     const data: [] = await response.json();
-    console.log(data);
     setGithubData(data);
   };
 
