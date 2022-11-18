@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Button, FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 type FormData = {
@@ -14,7 +13,7 @@ function SearchBar({ onSearchGithubUsername }: SearchBarProps) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<FormData>();
 
   const onSubmit = handleSubmit(async (data): Promise<void> => {
@@ -24,25 +23,30 @@ function SearchBar({ onSearchGithubUsername }: SearchBarProps) {
   });
 
   return (
-    <form onSubmit={onSubmit}>
-      <FormControl isInvalid={!!errors.username}>
-        <Input
+    <form className="flex w-full mx-auto flex-col" onSubmit={onSubmit}>
+      <div className="flex">
+        <input
+          className="bg-transparent border px-4 py-2 text-[#ccd6f6] outline-none placeholder-[#ccd6f6] border-[#ccd6f6] rounded-md w-full text-sm md:text-base"
           {...register('username', {
             required: 'GitHub username is required',
           })}
           defaultValue=""
           type="text"
           placeholder="Enter github username..."
-          _placeholder={{ color: 'inherit' }}
-          width="auto"
         />
-        <FormErrorMessage>
-          {errors.username && errors.username.message}
-        </FormErrorMessage>
-      </FormControl>
-      <Button type="submit" colorScheme="gray" isLoading={isSubmitting}>
-        Search
-      </Button>
+
+        <button
+          className="text-[#64ffda] border-[#64ffda] border px-4 py-2 rounded-md ml-3 hover:bg-[#64ffda] hover:text-[#0a192f] transition text-sm md:text-base"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+      {errors.username && (
+        <p className="text-red-500 mt-2 text-sm md:text-base">
+          {errors.username.message}
+        </p>
+      )}
     </form>
   );
 }
