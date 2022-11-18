@@ -3,11 +3,9 @@ import { useState } from 'react';
 
 type GithubApiResponse = {
   login: string;
-  id: number;
   avatar_url: string;
   html_url: string;
   name: string;
-  location?: string;
   bio?: string;
   public_repos?: number;
   followers?: number;
@@ -16,19 +14,7 @@ type GithubApiResponse = {
 };
 
 function useFetch() {
-  const [githubData, setGithubData] = useState<GithubApiResponse>({
-    login: '',
-    id: 0,
-    avatar_url: '',
-    html_url: '',
-    name: '',
-    location: '',
-    bio: '',
-    public_repos: 0,
-    followers: 0,
-    following: 0,
-    message: '',
-  });
+  const [githubData, setGithubData] = useState({} as GithubApiResponse);
 
   const fetchGithubData = async (githubUsername: string): Promise<void> => {
     if (githubUsername !== githubData?.login) {
@@ -38,11 +24,9 @@ function useFetch() {
       const data: GithubApiResponse = await response.json();
       const {
         login,
-        id,
         avatar_url,
         html_url,
         name,
-        location,
         bio,
         public_repos,
         followers,
@@ -52,17 +36,15 @@ function useFetch() {
 
       setGithubData({
         login,
-        id,
         avatar_url,
         html_url,
         name,
-        location,
         bio,
         public_repos,
         followers,
         following,
         message,
-      });
+      } as GithubApiResponse);
     }
   };
 
