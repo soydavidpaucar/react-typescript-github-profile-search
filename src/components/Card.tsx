@@ -16,7 +16,7 @@ type CardProps = {
 
 function Card({ githubData }: CardProps) {
   return (
-    <div className="border border-[#64ffda] text-red-500 border text-center rounded-md mt-24 bg-[#0a190f]/20 backdrop-blur-lg py-4 shadow-lg shadow-[#64ffda]/50 px-10 py-10">
+    <div className="border border-[#64ffda] text-red-500 border text-center rounded-md mt-24 bg-[#0a190f]/20 backdrop-blur-lg py-4 shadow-lg shadow-[#64ffda]/50 px-10 py-10 mb-24 md:mb-0">
       <figure className="flex justify-center items-center flex-col md:flex-row">
         <img className="h-24 rounded-md" src={githubData.avatar_url} alt="" />
         <figcaption className="flex flex-col justify-center items-center mt-3 md:mt-0 md:ml-4">
