@@ -14,7 +14,7 @@ type CardProps = {
   githubData: GithubApiResponse;
 };
 
-function Card({ githubData }: CardProps): JSX.Element {
+function Card({ githubData }: CardProps) {
   return (
     <div className="border border-[#64ffda] text-red-500 border text-center rounded-md mt-24 bg-[#0a190f]/20 backdrop-blur-lg py-4 shadow-lg shadow-[#64ffda]/50 px-10 py-10">
       <figure className="flex justify-center items-center flex-col md:flex-row">
