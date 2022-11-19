@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type GithubApiResponse = {
   login: string;
@@ -13,42 +13,34 @@ type GithubApiResponse = {
   message?: string;
 };
 
-function useFetch() {
-  const [githubData, setGithubData] = useState({} as GithubApiResponse);
+function useFetch(githubUsername: string) {
+  const [githubData, setGithubData] = useState<GithubApiResponse>(
+    {} as GithubApiResponse
+  );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const fetchGithubData = async (githubUsername: string): Promise<void> => {
-    if (githubUsername !== githubData?.login) {
-      const response: Response = await fetch(
-        `https://api.github.com/users/${githubUsername}`
-      );
-      const data: GithubApiResponse = await response.json();
-      const {
-        login,
-        avatar_url,
-        html_url,
-        name,
-        bio,
-        public_repos,
-        followers,
-        following,
-        message,
-      } = data;
+  useEffect(() => {
+    setIsLoading(true);
 
-      setGithubData({
-        login,
-        avatar_url,
-        html_url,
-        name,
-        bio,
-        public_repos,
-        followers,
-        following,
-        message,
-      } as GithubApiResponse);
-    }
-  };
+    fetch(`https://api.github.com/users/${githubUsername}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setGithubData({
+          login: data.login,
+          avatar_url: data.avatar_url,
+          html_url: data.html_url,
+          name: data.name,
+          bio: data.bio,
+          public_repos: data.public_repos,
+          followers: data.followers,
+          following: data.following,
+          message: data.message,
+        });
+        setIsLoading(false);
+      });
+  }, [githubUsername]);
 
-  return { githubData, fetchGithubData };
+  return { githubData, isLoading };
 }
 
 export default useFetch;
