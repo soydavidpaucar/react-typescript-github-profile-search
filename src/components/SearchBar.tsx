@@ -6,21 +6,17 @@ type FormData = {
 };
 
 type SearchBarProps = {
-  onSearchGithubUsername: (username: string) => Promise<void>;
+  onHandleChange: (githubUsername: string) => void;
 };
 
-function SearchBar({ onSearchGithubUsername }: SearchBarProps) {
+function SearchBar({ onHandleChange }: SearchBarProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = handleSubmit(async (data): Promise<void> => {
-    if (data.username.trim().length > 0) {
-      await onSearchGithubUsername(data.username);
-    }
-  });
+  const onSubmit = handleSubmit((data): void => onHandleChange(data.username));
 
   return (
     <form className="flex w-full mx-auto flex-col" onSubmit={onSubmit}>
