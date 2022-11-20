@@ -17,7 +17,7 @@ function Home() {
   return (
     <section className="max-w-screen-md flex flex-col m-auto pt-52 px-12 sm:px-0">
       <h1 className="text-center text-[#ccd6f6] mb-12 text-4xl md:text-6xl">
-        Github Search Profile
+        Github Profile Search
       </h1>
       <SearchBar onHandleChange={handleChange} />
 
