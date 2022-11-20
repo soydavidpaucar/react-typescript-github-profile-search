@@ -1,0 +1,36 @@
+// Vitest Snapshot v1
+
+exports[`Home > should match with snapshot 1`] = `
+<div>
+  <section
+    class="max-w-screen-md flex flex-col m-auto pt-52 px-12 sm:px-0"
+  >
+    <h1
+      class="text-center text-[#ccd6f6] mb-12 text-4xl md:text-6xl"
+    >
+      Github Search Profile
+    </h1>
+    <form
+      class="flex w-full mx-auto flex-col"
+    >
+      <div
+        class="flex"
+      >
+        <input
+          class="bg-transparent border px-4 py-2 text-[#ccd6f6] outline-none placeholder-[#ccd6f6] border-[#ccd6f6] rounded-md w-full text-sm md:text-base"
+          name="username"
+          placeholder="Enter github username..."
+          type="text"
+          value=""
+        />
+        <button
+          class="text-[#64ffda] border-[#64ffda] border px-4 py-2 rounded-md ml-3 hover:bg-[#64ffda] hover:text-[#0a192f] transition text-sm md:text-base"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+`;
