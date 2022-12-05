@@ -6,14 +6,14 @@
 
 - [Links](#links)
 - [Built With](#built-with)
-- [Run Locally](#run-locally)
+- [Live Preview](#live-preview)
+- [Live Site](#live-site)
 - [Author](#author)
 - [License](#license)
 
 ## Links
 
 - [Repo](https://github.com/soydavidpaucar/react-gif-app "GitHub Repo")
-- [Live](https://gifapp.davidpaucar.com "Live")
 
 ## Built With
 
@@ -28,37 +28,19 @@
 - Tailwind CSS
 - Api Fetch
 
-## Run Locally
+## Live Preview
 
-Clone the project
+![Live Preview](https://i.ibb.co/LCfgnd0/Clean-Shot-2022-12-04-at-23-19-08-2x.png)
 
-```bash
-  git clone https://github.com/soydavidpaucar/react-typescript-github-profile-search.git
-```
+## Live Site
 
-Go to the project directory
-
-```bash
-  cd react-typescript-github-profile-search
-```
-
-Install dependencies
-
-```bash
-  yarn
-```
-
-Start the server
-
-```bash
-  yarn preview
-```
+[Live](https://githubsearch.davidpaucar.com 'Live')
 
 ## Author
 
 **David Paucar**
 
-- [Profile](https://github.com/soydavidpaucar "David Paucar")
+- [LinkedIn Profile](https://www.linkedin.com/in/davidpaucar/ "David Paucar")
 - [Email](mailto:soydavidpaucar@gmail.com "Hi!")
 
 ## License
